@@ -1,0 +1,35 @@
+.modal-overlay {
+    animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification {
+    background-color: white;
+}
+
+.notification.success {
+    border-left: 4px solid #6366F1;
+}
+
+.notification.error {
+    border-left: 4px solid #EF4444;
+}

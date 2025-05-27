@@ -1,0 +1,164 @@
+.header {
+    background: linear-gradient(135deg, #1a1f2c 0%, #2d3748 100%);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+    height: 70px;
+    padding: 0.75rem 1.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.header-content {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 160px;
+}
+
+.logo img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    padding: 2px;
+    border: 2px solid #6366f1;
+    background: rgba(255, 255, 255, 0.05);
+    object-fit: cover;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+}
+
+.logo span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+}
+
+/* Center dashboard title */
+.dashboard-title {
+    flex: 1;
+    text-align: center;
+}
+
+.dashboard-title h4 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    position: relative;
+    display: inline-block;
+}
+
+.dashboard-title h4::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40%;
+    height: 2px;
+    background: linear-gradient(to right, #6366f1, #818cf8);
+    border-radius: 2px;
+}
+
+/* Logout button */
+.logout-button {
+    padding: 0.6rem 1.5rem;
+    background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 4px rgba(5, 150, 105, 0.1);
+}
+
+.logout-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+    background: linear-gradient(135deg, #4338ca 0%, #4f46e5 100%);
+}
+
+.logout-button::before {
+    content: '\f2f5';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0.75rem;
+    }
+    
+    .logo {
+        min-width: auto;
+    }
+    
+    .logo img {
+        height: 36px;
+        width: 36px;
+    }
+    
+    .dashboard-title h4 {
+        font-size: 1.1rem;
+    }
+    
+    .dashboard-title h4::after {
+        width: 60%;
+    }
+    
+    .logout-button {
+        padding: 0.5rem 1rem;
+    }
+    
+    .logout-button::before {
+        margin-right: 0;
+    }
+    
+    .logout-button span {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 0.75rem;
+    }
+    
+    .logo img {
+        height: 36px;
+    }
+    
+    .dashboard-title h4 {
+        font-size: 1rem;
+    }
+    
+    .logout-button {
+        padding: 0.4rem 0.8rem;
+    }
+}

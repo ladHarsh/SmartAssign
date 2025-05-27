@@ -1,0 +1,11 @@
+# Node modules
+node_modules/
+
+# Build files
+build/
+
+# Environment files
+.env
+
+# System files
+.DS_Store

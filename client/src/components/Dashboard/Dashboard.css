@@ -1,0 +1,1656 @@
+/* Enhanced hover card effects */
+.hover-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+.bg-indigo {
+    background: linear-gradient(135deg, #1a1f2c 0%, #2d3748 100%);
+}
+
+.bg-opacity-10 {
+    --bs-bg-opacity: 0.1;
+}
+
+/* Card component enhancements */
+.card {
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 0.75rem 1.25rem;
+}
+
+/* Main container styles */
+.container-fluid {
+    padding: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Welcome section styles */
+.welcome-section {
+    margin-bottom: 2rem;
+}
+
+.welcome-card {
+    background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+    border-radius: 16px;
+    border: none;
+    overflow: hidden;
+}
+
+.welcome-content {
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.welcome-text {
+    color: white;
+}
+
+.welcome-text h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.welcome-text p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0;
+}
+
+/* Classroom grid layout */
+.classrooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+/* Classroom card styles */
+.classroom-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.classroom-card .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+}
+
+.classroom-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Classroom header styles */
+.classroom-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.25rem;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header-main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.stats-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #f3f4f6;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+/* Toggle buttons */
+.toggle-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.toggle-buttons button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #f3f4f6;
+    color: #4b5563;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.toggle-buttons button.active {
+    background: #4f46e5;
+    color: white;
+}
+
+/* Table styles */
+.table-responsive {
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0;
+    width: 100%;
+}
+
+.table {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.table th {
+    background: #f9fafb;
+    font-weight: 600;
+    color: #4b5563;
+    padding: 1rem;
+    white-space: nowrap;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.table td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .container-fluid {
+        padding: 1rem;
+    }
+
+    .classrooms-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-content {
+        padding: 1.5rem;
+    }
+
+    .welcome-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .header-main {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .stats-badge {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .toggle-buttons {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .toggle-buttons button {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-fluid {
+        padding: 0.75rem;
+    }
+
+    .welcome-content {
+        padding: 1.25rem;
+    }
+
+    .welcome-text h2 {
+        font-size: 1.25rem;
+    }
+
+    .classrooms-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .stats-badge {
+        padding: 0.35rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .toggle-buttons button {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.6rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Loading and processing overlays */
+.processing-overlay,
+.website-loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.processing-content,
+.loading-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 90%;
+    width: 400px;
+}
+
+.processing-spinner,
+.loading-spinner {
+    font-size: 2rem;
+    color: #4f46e5;
+    margin-bottom: 1rem;
+}
+
+.loading-text {
+    color: #4f46e5;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.loading-subtext {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+/* Card component enhancements */
+.card {
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 0.75rem 1.25rem;
+}
+
+/* Submissions header responsive styles */
+.card-header .btn {
+    min-height: 32px;
+    white-space: nowrap;
+}
+
+.card-header .badge {
+    min-height: 32px;
+    padding: 0.5rem 0.75rem;
+}
+
+@media (max-width: 768px) {
+    .card-header .card-title {
+        font-size: 1rem;
+    }
+    
+    .card-header .btn {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
+    .card-header .badge {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-header .d-flex {
+        width: 100%;
+    }
+    
+    .card-header .btn {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+/* Gradients for first-letter based coloring */
+.gradient-overlay {
+    position: relative;
+}
+
+.gradient-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(255,255,255,0), rgba(0,0,0,0.1));
+    pointer-events: none;
+}
+
+/* Metric tiles */
+.metric-tile {
+    height: 100%;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.metric-tile:hover {
+    background-color: #f3f4f6 !important;
+}
+
+/* Add these styles for the assignment table */
+.assignment-table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.assignment-table thead th {
+    font-weight: 600;
+    color: #4b5563;
+    border-bottom: 2px solid #e5e7eb;
+    background: #f9fafb;
+}
+
+.assignment-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+.assignment-table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.assignment-table td {
+    border-top: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Status badge colors */
+.bg-success-subtle {
+    background-color: #ecfdf5;
+}
+
+
+.border-success-subtle {
+    border-color: #d1fae5;
+}
+
+.bg-danger-subtle {
+    background-color: #fef2f2;
+}
+
+.text-danger {
+    color: #ef4444;
+}
+
+.border-danger-subtle {
+    border-color: #fee2e2;
+}
+
+/* Add warning color styles */
+.bg-warning-subtle {
+    background-color: #fffbeb;
+}
+
+.text-warning {
+    color: #f59e0b !important;
+}
+
+.border-warning-subtle {
+    border-color: #fef3c7;
+}
+
+/* Add info color styles */
+.bg-info-subtle {
+    background-color: #eff6ff;
+}
+
+.text-info {
+    color: #3b82f6 !important;
+}
+
+.border-info-subtle {
+    border-color: #dbeafe;
+}
+
+/* Time remaining classes */
+.text-success {
+    color: #374151 !important;
+}
+
+.text-warning {
+    color: #f59e0b !important;
+}
+
+.text-danger {
+    color: #ef4444 !important;
+}
+
+/* Feedback popup styles */
+.feedback-popup {
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.feedback-overlay {
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Style for feedback content */
+.feedback-content {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #374151;
+}
+
+/* Classroom card styles */
+.classroom-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    max-width: 400px; /* Prevent cards from getting too wide */
+    margin: 0 auto; /* Center cards in their grid cells */
+    width: 100%;
+}
+
+.classroom-card .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.classroom-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add classrooms grid layout */
+.classrooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+/* Classroom Header Section Styles */
+.classroom-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.25rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.classroom-header-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.classroom-icon {
+  min-width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.classroom-details {
+  flex: 1;
+  min-width: 200px;
+}
+
+.classroom-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Toggle Buttons Styles */
+.toggle-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+  width: 300px;
+  justify-content: flex-end;
+}
+
+.toggle-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.toggle-buttons button i {
+  font-size: 1rem;
+}
+
+.toggle-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+  width: 300px; /* Fixed width for buttons section */
+  justify-content: flex-end;
+}
+
+.toggle-buttons button {
+  flex: 1;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+.btn-color {
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  color: #fff;
+}
+.btn-color:hover {
+  color: #fff;
+}
+.header-main {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 300px; /* Fixed width for title section */
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  flex-grow: 1; /* Allow stats to take remaining space */
+}
+
+.stats-badge {
+  background: #f3f4f6;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .classroom-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+  }
+
+  .classroom-details {
+    flex: 1;
+  }
+
+  .toggle-buttons {
+    margin-top: 0;
+    width: auto;
+  }
+
+  .toggle-buttons button {
+    flex: none;
+    min-width: 120px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .classroom-header {
+    padding: 2rem;
+  }
+
+  .toggle-buttons button {
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .classroom-header {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .header-main {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .header-title {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .toggle-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .stats-badge {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .header-main {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .header-title {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .stats-badge {
+    width: 100%;
+    text-align: center;
+  }
+
+  .toggle-buttons {
+    width: auto;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .toggle-buttons button {
+    min-width: 44px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 8px;
+  }
+
+  .toggle-buttons button span {
+    display: none;
+  }
+
+  .toggle-buttons button i {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+}
+
+/* Modern Submission Header Styles */
+.submission-header {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.submission-header-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.back-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.back-btn:hover {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+}
+
+.submission-header-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.submission-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 0;
+}
+
+.submission-title i {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.submission-title h5 {
+    margin: 0;
+    font-weight: 600;
+    color: #111827;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.submission-count {
+    height: 40px;
+    padding: 0 1.25rem;
+    border-radius: 10px;
+    background: #6366f1;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.submission-header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.submission-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.action-btn {
+    height: 40px;
+    padding: 0 1.25rem;
+    border-radius: 10px;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.action-btn i {
+    font-size: 1rem;
+}
+
+.export-btn {
+    border-color: #6366f1;
+    color: #6366f1;
+    background: #ecfdf5;
+}
+
+.export-btn:hover {
+    background: #d1fae5;
+    border-color: #059669;
+}
+
+.grade-btn {
+    border-color: #6366f1;
+    color: #6366f1;
+    background: #eff6ff;
+}
+
+.grade-btn:hover {
+    background: #dbeafe;
+    border-color: #4f46e5;
+}
+
+@media (max-width: 768px) {
+    .submission-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+
+    .submission-header-left {
+        width: 100%;
+    }
+
+    .submission-header-right {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(36px, 1fr));
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    .submission-header-bottom {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .submission-actions {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .action-btn {
+        width: 36px;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .action-btn span {
+        display: none;
+    }
+
+    .action-btn i {
+        margin: 0;
+    }
+
+    .submission-count {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .submission-header {
+        padding: 1rem;
+    }
+
+    .back-btn, .action-btn, .submission-count {
+        height: 36px;
+    }
+
+    .back-btn {
+        width: 36px;
+    }
+
+    .submission-header-right {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Section Header Styles */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.section-title i {
+  font-size: 1.25rem;
+  color: #6366f1;
+}
+
+.section-title h5 {
+  margin: 0;
+  font-weight: 600;
+  color: #111827;
+}
+
+.section-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media (max-width: 576px) {
+  .section-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .section-actions {
+    justify-content: flex-end;
+  }
+
+  .section-actions .btn {
+    flex: 1;
+  }
+}
+
+/* Action buttons container in submissions table */
+.submission-actions-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
+}
+
+/* Individual action button styles */
+.submission-action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    min-width: 90px;
+}
+
+@media (max-width: 768px) {
+    .submission-actions-container {
+       
+        width: 100%;
+    }
+
+    .submission-action-btn {
+        width: 100%;
+        padding: 0.5rem;
+        min-width: unset;
+    }
+
+    .submission-action-btn span {
+        display: none;
+    }
+
+    .submission-action-btn i {
+        margin: 0;
+        font-size: 1rem;
+    }
+}
+
+/* Icon Button Styles */
+.icon-button {
+    min-width: 110px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.375rem 0.75rem;
+}
+
+.icon-button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    background-color: #f3f4f6;
+}
+
+.icon-button:not(:disabled):hover {
+    background-color: #6b7280;
+    color: white;
+    border-color: #6b7280;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .icon-button {
+        min-width: 36px;
+        padding: 0.375rem;
+    }
+
+    .icon-button span {
+        display: none;
+    }
+
+    .icon-button i {
+        margin: 0;
+    }
+}
+
+/* Tablet and Mobile Responsive Styles for Student Section */
+@media (max-width: 1024px) {
+  .students-section .table {
+    display: block;
+  }
+
+  .students-section thead {
+    display: none;
+  }
+
+  .students-section tbody tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+  }
+
+  /* Student Info Column */
+  .student-info-column {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .student-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+  }
+
+  .student-details {
+    flex: 1;
+  }
+
+  .student-name {
+    font-weight: 600;
+    color: #111827;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .student-email {
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+
+  /* Stats Grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .stat-item {
+    background: #f9fafb;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-value {
+    font-weight: 600;
+    color: #111827;
+    font-size: 1rem;
+  }
+
+  /* Action Buttons */
+  .action-column {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .action-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+/* Mobile Specific Adjustments */
+@media (max-width: 768px) {
+  .students-section tbody tr {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .action-column {
+    flex-direction: column;
+  }
+
+  .action-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Small Mobile Adjustments */
+@media (max-width: 576px) {
+  .student-info-column {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .student-avatar {
+    margin: 0 auto;
+  }
+}
+
+/* Responsive table styles */
+@media (max-width: 1024px) {
+    .table-responsive {
+        display: block;
+        width: 100%;
+    }
+
+    .table thead {
+        display: none;
+    }
+
+    .table tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .table tbody tr {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1.25rem;
+        background: white;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e5e7eb;
+    }
+
+    .table td {
+        display: flex;
+        padding: 0.5rem 0;
+        border: none;
+        align-items: center;
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #4b5563;
+        width: 40%;
+        padding-right: 1rem;
+    }
+
+    .table td > div {
+        flex: 1;
+    }
+
+    /* Assignment title cell */
+    .table td:first-child {
+        padding-top: 0;
+    }
+
+    .table td:first-child::before {
+        display: none;
+    }
+
+    .table td:first-child > div {
+        width: 100%;
+    }
+
+    /* Due date cell */
+    .table td:nth-child(2)::before {
+        content: "Due Date";
+    }
+
+    /* Status cell */
+    .table td:nth-child(3)::before {
+        content: "Status";
+    }
+
+    /* Submissions cell */
+    .table td:nth-child(4)::before {
+        content: "Submissions";
+    }
+
+    /* Actions cell */
+    .table td:last-child {
+        padding-bottom: 0;
+    }
+
+    .table td:last-child::before {
+        display: none;
+    }
+
+    .table td:last-child > div {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 768px) {
+    .table tbody tr {
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+
+    .table td {
+        padding: 0.35rem 0;
+    }
+
+    .table td::before {
+        width: 45%;
+        font-size: 0.875rem;
+    }
+
+    .table td:last-child > div {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .table td:last-child > div button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .table tbody tr {
+        padding: 0.75rem;
+        gap: 0.5rem;
+    }
+
+    .table td {
+        padding: 0.25rem 0;
+        font-size: 0.875rem;
+    }
+
+    .table td::before {
+        width: 50%;
+        font-size: 0.8rem;
+    }
+
+    /* Action buttons container */
+    .table td[data-label="Actions"] > div {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        width: 100%;
+    }
+
+    /* Individual action buttons */
+    .table td[data-label="Actions"] > div button {
+        flex: 1;
+        padding: 0.375rem 0.5rem;
+        font-size: 0.75rem;
+        white-space: nowrap;
+        min-width: 0;
+    }
+
+    /* Hide button text, show only icons */
+    .table td[data-label="Actions"] > div button span {
+        display: none;
+    }
+
+    .table td[data-label="Actions"] > div button i {
+        margin: 0;
+    }
+}
+
+/* Status badge styles */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Action buttons container */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1024px) {
+    .action-buttons {
+        justify-content: flex-start;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .action-buttons {
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    .action-buttons button {
+        width: 100%;
+    }
+}
+
+/* Cell content styles */
+.cell-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.cell-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.cell-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.cell-text .title {
+    font-weight: 500;
+    color: #111827;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cell-text .subtitle {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+@media (max-width: 1024px) {
+    .cell-content {
+        width: 100%;
+    }
+
+    .cell-text {
+        flex: 1;
+    }
+}
+
+@media (max-width: 576px) {
+    .cell-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .cell-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Assignment table responsive styles */
+@media (max-width: 1030px) {
+    .table-responsive {
+        display: block;
+        width: 100%;
+    }
+
+    .table thead {
+        display: none;
+    }
+
+    .table tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .table tbody tr {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1.25rem;
+        background: white;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e5e7eb;
+    }
+
+    .table td {
+        display: flex;
+        padding: 0.5rem 0;
+        border: none;
+        align-items: center;
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #4b5563;
+        width: 40%;
+        padding-right: 1rem;
+    }
+
+    .table td > div {
+        flex: 1;
+    }
+
+    /* Assignment title cell */
+    .table td:first-child {
+        padding-top: 0;
+    }
+
+    .table td:first-child::before {
+        display: none;
+    }
+
+    .table td:first-child > div {
+        width: 100%;
+    }
+
+    /* Due date cell */
+    .table td:nth-child(2)::before {
+        content: "Due Date";
+    }
+
+    /* Status cell */
+    .table td:nth-child(3)::before {
+        content: "Status";
+    }
+
+    /* Submissions cell */
+    .table td:nth-child(4)::before {
+        content: "Submissions";
+    }
+
+    /* Actions cell */
+    .table td:last-child {
+        padding-bottom: 0;
+    }
+
+    .table td:last-child::before {
+        display: none;
+    }
+
+    .table td:last-child > div {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 768px) {
+    .table tbody tr {
+        padding: 1rem;
+        gap: 0.75rem;
+    }
+
+    .table td {
+        padding: 0.35rem 0;
+    }
+
+    .table td::before {
+        width: 45%;
+        font-size: 0.875rem;
+    }
+
+    .table td:last-child > div {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .table td:last-child > div button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .table tbody tr {
+        padding: 0.75rem;
+        gap: 0.5rem;
+    }
+
+    .table td {
+        padding: 0.25rem 0;
+        font-size: 0.875rem;
+    }
+
+    .table td::before {
+        width: 50%;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 770px) {
+    .table td:nth-child(2)::before,
+    .table td:nth-child(3)::before,
+    .table td:nth-child(4)::before {
+        display: none;
+    }
+
+    .table td:nth-child(2),
+    .table td:nth-child(3),
+    .table td:nth-child(4) {
+        padding: 0.35rem 0;
+    }
+
+    .table td:nth-child(2) > div,
+    .table td:nth-child(3) > div,
+    .table td:nth-child(4) > div {
+        width: 100%;
+    }
+
+    /* Adjust the width of the remaining columns */
+    .table td:first-child {
+        width: 50%;
+    }
+
+    .table td:last-child {
+        width: 50%;
+    }
+}
