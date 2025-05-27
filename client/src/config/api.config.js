@@ -1,5 +1,5 @@
 const BASE_URL = process.env.NODE_ENV === 'production'
-     ? 'https://ai-based-evaluation-platform.onrender.com'  // Remove any trailing slash
+     ? 'https://smartassign-server.onrender.com'  // Remove any trailing slash
     // ? process.env.REACT_APP_BASE_URL
     : 'http://localhost:9000';
 
