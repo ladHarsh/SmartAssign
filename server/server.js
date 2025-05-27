@@ -23,7 +23,7 @@ app.use(
   cors({
     origin:
       process.env.NODE_ENV === "production"
-        ? "https://ai-based-evaluation-platform.onrender.com" // Remove any trailing slash
+        ? "https://smartassign.onrender.com" // Remove any trailing slash
         : // ? process.env.FRONTEND_URL
           "http://localhost:3000",
     credentials: true,
