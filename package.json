@@ -4,7 +4,7 @@
   "main": "server/server.js",
   "scripts": {
     "install-all": "npm install && cd client && npm install && cd ..",
-    "build": "cd client && npm run build",
+    "build": "cd client && npm install && npm run build",
     "start": "node server/server.js"
   },
   "dependencies": {
