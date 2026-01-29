@@ -20,6 +20,13 @@ SmartAssign is a **production-ready applied AI system** designed to reduce assig
 
 ---
 
+## Links
+- Video Demo: https://youtu.be/cqtb4iDCn2M
+- Live Application: https://smartassign.onrender.com
+- Portfolio: https://harshlad.vercel.app
+
+---
+
 ## Problem Statement
 Educational institutions struggle to provide timely and consistent feedback as class sizes increase. Faculty members spend significant time creating marking schemes and manually evaluating submissions, leading to delayed feedback cycles and inconsistent grading standards.
 
