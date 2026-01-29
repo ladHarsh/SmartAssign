@@ -1,85 +1,208 @@
 # SmartAssign
 
-An automated assignment management and evaluation system using Large Language Models to generate reference answers and provide preliminary grading for student submissions.
+![License](https://img.shields.io/badge/license-MIT-green)
+![Node.js](https://img.shields.io/badge/Node.js-18.x-brightgreen)
+![Express](https://img.shields.io/badge/Express.js-Backend-lightgrey)
+![MongoDB](https://img.shields.io/badge/MongoDB-Database-green)
+![React](https://img.shields.io/badge/React-Frontend-blue)
+![LangChain](https://img.shields.io/badge/LangChain-LLM%20Framework-orange)
+![Llama-3](https://img.shields.io/badge/LLM-Llama--3--70B-purple)
+![Groq](https://img.shields.io/badge/Inference-Groq-red)
+
+An AI-assisted assignment evaluation system that uses Large Language Models and retrieval-based reasoning to help educators generate reference answers and provide structured, draft feedback on student submissions.
+
+Designed as a decision-support system, not a fully autonomous grader.
+
+---
+
+## TL;DR
+SmartAssign is a **production-ready applied AI system** designed to reduce assignment feedback latency at scale. It uses LLMs and retrieval-based reasoning to assist educators in grading and feedback workflows while keeping **humans in the loop** to ensure reliability, transparency, and academic integrity.
+
+---
 
 ## Problem Statement
-Educational institutions face a scalability challenge in providing timely, detailed feedback on assignments. Faculty often spend significant time generating marking schemes and performing repetitive grading for objective or semi-structured questions. This manual process leads to delayed feedback loops, which hinders the learning progression of students.
+Educational institutions struggle to provide timely and consistent feedback as class sizes increase. Faculty members spend significant time creating marking schemes and manually evaluating submissions, leading to delayed feedback cycles and inconsistent grading standards.
 
-## AI / ML Approach
-The system leverages Retrieval-Augmented Generation (RAG) principles to bridge the gap between static assignment documents and active evaluation.
+Fully automated grading systems are risky in academic environments due to hallucinations, subjectivity, and misalignment with instructor intent.
 
-- **Model Choice**: The platform uses Llama-3-70b via the Groq inference engine. This was chosen for its high reasoning capabilities in educational contexts and the extremely low latency required for interactive faculty workflows.
-- **Technique**: Zero-shot and few-shot prompting via LangChain is used for two primary tasks:
-    1. **Reference Generation**: Extracting core questions from instructor-provided PDFs and generating comprehensive "ideal" answers.
-    2. **Semantic Grading**: Comparing student submission text against the generated reference data to provide a similarity-based score and qualitative feedback.
-- **Data Inputs**: The system processes unstructured text data extracted from PDF documents. It does not rely on pre-labeled datasets but instead uses the instructor's source material as the ground truth for each specific session.
+---
+
+## Solution Overview
+SmartAssign acts as a **decision-support system** for educators rather than an autonomous grader.
+
+The platform:
+- Generates draft reference answers from instructor-provided material
+- Assists with semantic comparison of student submissions
+- Produces structured feedback drafts for faculty review
+- Preserves full human authority over final grading decisions
+
+The system is intentionally conservative, favoring reliability and instructor control over full automation.
+
+---
 
 ## Key Engineering Decisions
-- **LangChain Abstraction**: LangChain was implemented to decouple the application logic from the specific LLM provider. This allows the system to switch between Groq, OpenAI, or local Ollama instances by changing a single configuration, ensuring future-proofing against API pricing or model capability shifts.
-- **Stateless PDF Processing**: Instead of storing large binary PDF blobs in the database, the system parses text during upload. Metadata and text extracts are stored in MongoDB, while original files are handled via a local file-system middleware. This reduces database overhead and speeds up the inference calls by only sending relevant text chunks to the LLM.
-- **Asynchronous Interaction**: Given the non-deterministic latency of AI inference, the backend uses an asynchronous flow to ensure the UI remains responsive during the 2-5 second generation window.
+
+### Human-in-the-Loop by Design
+All AI-generated answers and grades are explicitly marked as drafts. Faculty must review, edit, and approve outputs before they are released to students.
+
+### Provider-Agnostic AI Layer
+LangChain abstracts the LLM interface, allowing the system to switch between Groq, OpenAI, or local models by changing configuration only—protecting the system from vendor lock-in.
+
+### Stateless Document Handling
+PDFs are parsed during upload and converted into clean text. Only extracted text and metadata are stored in MongoDB, reducing database load and minimizing unnecessary token usage during inference.
+
+### Asynchronous AI Workflows
+LLM inference latency is non-deterministic. The backend is designed with asynchronous request handling to keep the UI responsive during the generation process.
+
+---
+
+## AI System Design
+
+### Model & Inference
+- **Model**: Llama-3-70B
+- **Inference Engine**: Groq (LPUs for low-latency reasoning)
+- **Temperature**: 0.1–0.2 to prioritize factual consistency over creativity
+
+### Core AI Tasks
+
+#### 1. Reference Answer Generation
+- Extracts key questions from instructor-provided PDFs
+- Generates structured "ideal answers" using context-aware prompting
+
+#### 2. Semantic Evaluation
+- Compares student submissions against generated reference answers
+- Produces similarity-based scores and qualitative feedback drafts
+
+### Data Inputs
+- Unstructured text extracted from PDFs
+- No pre-labeled datasets
+- Instructor-provided material acts as session-specific ground truth
+
+---
 
 ## Evaluation & Reliability
-- **Human-in-the-Loop**: The system is designed as a collaborative tool, not a fully autonomous grader. All AI-generated scores and feedback are presented as "Drafts." Faculty must review, edit, and manually approve these results before they are released to students.
-- **Non-Deterministic Outputs**: LLM outputs are inherently probabilistic. To mitigate hallucinations, the system uses temperature settings of 0.1-0.2 to prioritize factual consistency over creativity.
-- **Validation**: Accuracy is not explicitly claimed as a percentage. Reliability is instead verified by comparing the AI's "Ideal Answer" against the instructor's intent during the creation phase, allowing the instructor to regenerate or modify results before students submit.
+SmartAssign avoids traditional accuracy claims, as grading quality is context-dependent and often subjective.
 
-## Tech Stack
-- **Backend**: Node.js, Express.js
-- **Frontend**: React.js
-- **Database**: MongoDB (Mongoose ODM)
-- **AI/ML**: LangChain, Groq SDK, Llama-3
-- **Document Processing**: pdf-parse, pdf2json
-- **Communication**: Nodemailer (SMTP)
+Instead, the system is evaluated using:
+- Consistency of reference answers across regenerations
+- Alignment of AI-generated output with instructor intent
+- Reduction in average grading time per assignment
+- Stability of outputs under low-temperature inference
+
+All AI outputs remain editable drafts, ensuring that academic decisions remain under human control.
+
+This design choice prioritizes trust and transparency over raw automation.
+
+---
 
 ## High-Level Architecture
+
 ```text
-[PDF Upload] -> [Text Extraction (pdf-parse)] -> [Clean Text]
-                                                       |
-[Instructor Key] --------------------------------> [Context Window]
-                                                       |
-                                                (Llama-3 Inference)
-                                                       |
-                                                [Structured JSON]
-                                                       |
-[Student View] <----(MongoDB)---- [Draft Grade] <---- [Review]
+[PDF Upload]
+      |
+[Text Extraction]
+      |
+[Clean Context Window]
+      |
+[LLM Inference (Llama-3)]
+      |
+[Structured JSON Output]
+      |
+[Instructor Review]
+      |
+[Approved Feedback]
 ```
 
+---
+
+## Tech Stack
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB (Mongoose ODM)
+
+### Frontend
+- React.js
+
+### AI / ML
+- LangChain
+- Groq SDK
+- Llama-3-70B
+
+### Document Processing
+- pdf-parse
+- pdf2json
+
+### Communication
+- Nodemailer (SMTP)
+
+---
+
 ## Setup & Run
+
 ### Prerequisites
 - Node.js v18+
 - MongoDB instance
-- Groq API Key
+- Groq API key
 
 ### Installation
-1. Clone the repository.
-2. In the `server` directory, create a `.env` file:
-   ```env
-   MONGODB_URI=your_uri
-   JWT_SECRET=your_secret
-   GROQ_API_KEY=your_key
-   EMAIL_USER=your_email
-   EMAIL_APP_PASSWORD=your_password
-   ```
-3. Run `npm install` in both the root and `client` directories.
-4. Start the backend: `cd server && npm run dev`.
-5. Start the frontend: `cd client && npm start`.
 
-## What I Learned
-- **Prompt Engineering**: Developed skills in designing robust prompts that enforce specific JSON output formats from LLMs to ensure backend compatibility.
-- **System Orchestration**: Gained experience in managing the lifecycle of data as it moves from unstructured PDF files to structured database records and finally into prompt contexts.
-- **Error Middleware**: Implemented comprehensive error handling for third-party API failures, ensuring the application gracefully handles rate limits or service outages from the AI provider.
+1. Clone the repository
+
+2. Create a `.env` file inside the `server` directory:
+   ```env
+   MONGODB_URI=your_mongodb_uri
+   JWT_SECRET=your_jwt_secret
+   GROQ_API_KEY=your_groq_api_key
+   EMAIL_USER=your_email
+   EMAIL_APP_PASSWORD=your_email_password
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   cd client && npm install
+   ```
+
+4. Start the backend:
+   ```bash
+   cd server
+   npm run dev
+   ```
+
+5. Start the frontend:
+   ```bash
+   cd client
+   npm start
+   ```
+
+---
+
+## Engineering Learnings
+- Designing prompts that enforce strict JSON output formats
+- Managing unstructured data from PDFs through structured inference pipelines
+- Handling third-party AI failures with robust error middleware
+- Balancing AI capability with human oversight in sensitive domains
+
+---
 
 ## Limitations
-- **OCR**: The current implementation uses text-based PDF parsing. It cannot process handwritten submissions or assignments provided as images without further integration of OCR (Optical Character Recognition).
-- **Context Window**: Extremely long assignments (50+ pages) may exceed the token limits of the current LLM context window.
-- **Deterministic Logic**: The system may struggle with highly subjective or creative writing assignments where "correctness" is loosely defined.
+- No support for handwritten or image-based submissions without OCR
+- Very long documents may exceed LLM context window limits
+- Subjective or creative assignments remain challenging to evaluate consistently
+
+---
 
 ## Future Improvements
-- **Advanced Vector Search**: Moving from simple text comparison to vector-based semantic search using Pinecone or Weaviate for more nuanced grading of larger texts.
-- **On-Device Inference**: Exploring the use of WebGPU and smaller models (e.g., Phi-3) to perform light evaluation locally in the browser.
+- Vector-based semantic grading using embedding stores
+- OCR integration for scanned submissions
+- Lightweight on-device inference for preliminary evaluations
 
-## Author Information
-- **Name**: Harsh Lad
-- **Role**: Software Engineer / AI Implementation
-- **Contact**: [GitHub Profile](https://github.com/ladHarsh) / [Email](mailto:harshlad.dev@gmail.com)
+---
+
+## Author
+**Harsh Lad**  
+Applied AI Engineer  
+📧 harshlad.dev@gmail.com  
+🔗 https://github.com/ladHarsh
